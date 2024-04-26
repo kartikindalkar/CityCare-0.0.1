@@ -4,6 +4,10 @@ ScreenShots
 User Profile Page
 ![1](https://github.com/kartikindalkar/CityCare-0.0.1/assets/13980931/498932b6-0cf5-4d40-adbc-4b50fc1a2ca7)
 
+
+Users All Posted Ads
+![myAds](https://github.com/kartikindalkar/CityCare-0.0.1/assets/13980931/c0a3435a-37b7-4185-8fc1-63321a675ef3)
+
 User Posted Single Ads Page
 ![3](https://github.com/kartikindalkar/CityCare-0.0.1/assets/13980931/56f14027-d346-4365-a388-2cbc7feab127)
 
