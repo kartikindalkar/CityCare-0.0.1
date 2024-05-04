@@ -6,32 +6,43 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 
+
+
+@Entity
+@Data
 @Getter
 @Setter
+@AllArgsConstructor
+//@NoArgsConstructor
 @ToString
-@Entity
 @Table(name="citycare_user")
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String creationDate;
-	private Timestamp updDate;
+	private String updDate;
 	private Timestamp referenceDate;
 	private String firstName;
 	private String lastName;
@@ -53,6 +64,8 @@ public class User {
 	private String profileImgPath;	
 	private String idProofImgPath;
 	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Products> products;
 
 	@Override
 	public String toString() {
@@ -63,6 +76,20 @@ public class User {
 				+ ", profileImgPath=" + profileImgPath + ", email=" + email + ", password=" + password + ", uniqueID="
 				+ uniqueID + ", idProofImgPath=" + idProofImgPath + ", role=" + role + "]";
 	}
+	
+	
+
+	public List<Products> getProducts() {
+		return products;
+	}
+
+
+
+	public void setProducts(List<Products> products) {
+		this.products = products;
+	}
+
+
 
 	public MultipartFile getProfileImg() {
 		return profileImg;
@@ -104,11 +131,11 @@ public class User {
 
 
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -136,11 +163,11 @@ public class User {
 		this.creationDate = creationDate;
 	}
 
-	public Timestamp getUpdDate() {
+	public String getUpdDate() {
 		return updDate;
 	}
 
-	public void setUpdDate(Timestamp updDate) {
+	public void setUpdDate(String updDate) {
 		this.updDate = updDate;
 	}
 
@@ -261,6 +288,7 @@ public class User {
         // Generate and set your custom unique identifier
         this.uniqueID = generateUniqueId();
         this.creationDate = CreationDate();
+        this.updDate= UpdatedDate();
     }
 
     // Getter and setter for uniqueId
@@ -284,6 +312,15 @@ public class User {
     }
 	
     public String CreationDate() {
+    	LocalDateTime currentDateTime = LocalDateTime.now();
+
+        // Format the timestamp using a specific pattern
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedTimestamp = currentDateTime.format(formatter);
+        return formattedTimestamp;
+    }
+
+    public String UpdatedDate() {
     	LocalDateTime currentDateTime = LocalDateTime.now();
 
         // Format the timestamp using a specific pattern

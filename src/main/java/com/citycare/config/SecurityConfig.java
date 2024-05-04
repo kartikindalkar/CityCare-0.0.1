@@ -50,7 +50,7 @@ public class SecurityConfig {
 				csrf.disable().authorizeHttpRequests()
 				        .requestMatchers("/assets/**").permitAll()
 				        .requestMatchers("/images/**").permitAll()
-				        .requestMatchers("/", "/signup", "/login", "/saveUser").permitAll()
+				        .requestMatchers("/index","/", "/signup", "/login", "/saveUser").permitAll()
 				        .anyRequest().authenticated();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

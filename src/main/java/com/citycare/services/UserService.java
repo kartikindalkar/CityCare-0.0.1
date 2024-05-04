@@ -13,4 +13,8 @@ public interface UserService {
 	public User saveUser(User user);
 	
 	public void removeSessionMessage();
+
+	public void updateUser(Long id, User updatedUser);
+
+	public void saveImages(User user);
 }
