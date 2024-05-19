@@ -6,7 +6,8 @@ User Profile Page
 
 
 Users All Posted Ads
-![myAds](https://github.com/kartikindalkar/CityCare-0.0.1/assets/13980931/c0a3435a-37b7-4185-8fc1-63321a675ef3)
+![CITY CARE - Build Your Own Brand](https://github.com/kartikindalkar/CityCare-0.0.1/assets/13980931/447d09f4-aa87-417d-b7a4-f6bc91f52cde)
+
 
 User Posted Single Ads Page
 ![3](https://github.com/kartikindalkar/CityCare-0.0.1/assets/13980931/56f14027-d346-4365-a388-2cbc7feab127)
